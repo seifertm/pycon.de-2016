@@ -2,17 +2,99 @@
     <head>
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/league.css">
+        <link rel="stylesheet" href="lib/css/zenburn.css">
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
-                <section>Slide 1</section>
-                <section>Slide 2</section>
+                <section>
+                    <h2>Introduction to Test-Driven Development</h2>
+                </section>
+                
+                <section>
+                    <h2>Why TDD?</h2>
+                </section>
+                <section>
+                    <h2>Introduction to py.test</h2>
+                    <section>
+                        <h3>Dealing with duplication in tests</h3>
+                        <pre><code data-trim>
+                            def test_ingredients_contain_tomatoes():
+                                delivery_service = LocalService()
+                                pizza = delivery_service.order(1)[0]
+                                
+                                assert 'tomatoes' in pizza.ingredients
+
+                            
+                            def test_ingredients_contain_cheese():
+                                delivery_service = LocalService()
+                                pizza = delivery_service.order(1)[0]
+
+                                assert 'cheese' in pizza.ingredients
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Fixtures to the rescue</h3>
+                        <pre><code data-trim>
+                            @pytest.fixture
+                            def pizza():
+                                delivery_service = LocalService()
+                                pizza = delivery_service.order(1)[0]
+                                return pizza
+
+                            
+                            def test_ingredients_contain_tomatoes(pizza):
+                                assert 'tomatoes' in pizza.ingredients
+
+                            
+                            def test_ingredients_contain_cheese(pizza):
+                                assert 'cheese' in pizza.ingredients
+                        </code></pre>
+                    </section>
+                </section>
+                
+                <section>
+                    <h2>Setting up the environment</h2>
+                    <pre><code data-trim>
+                        $ mkdir pymunich16
+                        $ cd pymunich16
+                        $ virtualenv venv
+                        $ ./venv/bin/activate
+                        $ pip install pytest
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Writing the implementation</h2>
+                </section>
+                <section>
+                    <h2>Writing the test</h2>
+                </section>
+                <section>
+                    <h2>Putting it all together</h2>
+                </section>
             </div>
         </div>
+        <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.js"></script>
         <script>
-            Reveal.initialize();
+            var code_blocks = document.querySelectorAll("pre code");
+            
+            for (code_block of code_blocks) {
+                var content = code_block.innerHTML;
+                var lines = content.split(/\r?\n/);
+                var whitespace_count = lines[1].match("^\\s*")[0].length;
+                var trimmed_lines = lines.map(function (element) {
+                    return element.substring(whitespace_count);
+                });
+                code_block.innerHTML = trimmed_lines.join("\n");
+            }
+            
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+            Reveal.configure({ slideNumber: true });
         </script>
     </body>
 </html>
