@@ -9,10 +9,25 @@
             <div class="slides">
                 <section>
                     <h2>Introduction to Test-Driven Development</h2>
+                    <p><strong>PyCon.de 2016</strong><p>
+                    <p><em>Michael Seifert</em><p>
                 </section>
                 
                 <section>
-                    <h2>Why TDD?</h2>
+                    <h2>The Bad</h2>
+                    <ul>
+                        <li class="fragment">TDD takes around 15% more time (George, Williams 2003; Bhat, Nagappan 2006)</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>The Good</h2>
+                    <ul>
+                        <li class="fragment">Produces additional documentation in form of test cases</li>
+                        <li class="fragment">Automated tests aid in future maintenance and development</li>
+                        <li class="fragment">Reduces defect rate compared to ad-hoc unit testing (Maximilien, Williams 2003)</li>
+                        <li class="fragment">Increases quality of code (George, Williams 2003; Bhat, Nagappan 2006)</li>
+                    </ul>
                 </section>
                 <section>
                     <h2>Introduction to py.test</h2>
@@ -65,12 +80,42 @@
                 </section>
                 <section>
                     <h2>Writing the implementation</h2>
+                    <pre><code data-trim>
+                        import pytest
+                        from fibonacci import *
+                    
+                        def test_raises_when_index_is_negative():
+                            with pytest.raises(ValueError):
+                                fibonacci(-1)
+                    
+                        def test_first_number_is_one():
+                            assert fibonacci(0) == 1
+
+                        def test_second_number_is_one():
+                            assert fibonacci(1) == 1
+
+                        def test_number_is_sum_of_previous_numbers():
+                            assert fibonacci(4) == fibonacci(2) + fibonacci(3)
+                    </code></pre>
                 </section>
                 <section>
                     <h2>Writing the test</h2>
+                    Complex numbers example
                 </section>
                 <section>
                     <h2>Putting it all together</h2>
+                </section>
+                <section>
+                    <h2>Limitations</h2>
+                </section>
+                <section>
+                    <h2>Beyond TDD</h2>
+                    <p>Tests do not necessarily have to fail, if we implemented the solution to a required test "by accident".</p>
+                </section>
+                <section>
+                    <h2>Improving our TDD skills</h2>
+                    <p>Choosing the right granularity</p>
+                    <p>Choosing the right order of tests</p>
                 </section>
             </div>
         </div>
