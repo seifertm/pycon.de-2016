@@ -3,6 +3,7 @@
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/league.css">
         <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
     </head>
     <body>
         <div class="reveal">
@@ -70,7 +71,7 @@
                 
                 <section>
                     <h2>Setting up the environment</h2>
-                    <pre><code data-trim>
+                    <pre><code id="code" data-trim>
                         $ mkdir pymunich16
                         $ cd pymunich16
                         $ virtualenv venv
@@ -121,6 +122,7 @@
         </div>
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.js"></script>
+        <script src="js/clipboard.js"></script>
         <script>
             var code_blocks = document.querySelectorAll("pre code");
             
@@ -133,6 +135,26 @@
                 });
                 code_block.innerHTML = trimmed_lines.join("\n");
             }
+            
+            var code_block_index = 0;
+            for (code_block of code_blocks) {
+                var listing_id = "listing" + code_block_index;
+                code_block.id = listing_id;
+                var button = document.createElement("button");
+                button.classList.add("copyable");
+                button.setAttribute("data-clipboard-target", "#" + listing_id); 
+                button.setAttribute("alt", "Copy to clipboard"); 
+                
+                var clipboard_icon = document.createElement("i");
+                clipboard_icon.classList.add("fa", "fa-clipboard");
+                clipboard_icon.setAttribute("aria-hidden", "true");
+                button.appendChild(clipboard_icon);
+
+                var parent = code_block.parentNode;
+                parent.appendChild(button);
+            }
+            new Clipboard('.copyable');
+
             
             Reveal.initialize({
                 dependencies: [
