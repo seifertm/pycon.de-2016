@@ -1,9 +1,9 @@
 <html>
     <head>
-        <link rel="stylesheet" href="css/reveal.css">
-        <link rel="stylesheet" href="css/theme/league.css">
+        <link rel="stylesheet" href="static/css/reveal.css">
+        <link rel="stylesheet" href="static/css/theme/league.css">
         <link rel="stylesheet" href="lib/css/zenburn.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/css/font-awesome.min.css">
     </head>
     <body>
         <div class="reveal">
@@ -130,8 +130,8 @@
             </div>
         </div>
         <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.js"></script>
-        <script src="js/clipboard.js"></script>
+        <script src="static/js/reveal.js"></script>
+        <script src="static/js/clipboard.js"></script>
         <script>
             var code_blocks = document.querySelectorAll("pre code");
             
@@ -168,7 +168,7 @@
             
             Reveal.initialize({
                 dependencies: [
-                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                    { src: 'static/js/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
                 ]
             });
             Reveal.configure({ slideNumber: true });
