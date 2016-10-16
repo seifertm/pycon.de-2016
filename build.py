@@ -7,7 +7,7 @@ env = Environment(loader=FileSystemLoader('templates'))
 template = env.get_template('slides.html')
 
 def split_test_suite(test_suite):
-    return test_suite.split('\n\n\n')
+    return re.split('\n{3,}', test_suite)
 
 def remove_comments(test_suite):
     without_block_comments = re.sub(r'""".+?"""', '', test_suite, flags=re.DOTALL)
