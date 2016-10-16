@@ -70,41 +70,50 @@
                 </section>
                 
                 <section>
+                    <h2>Hands on!</h2>
+                </section>
+
+                <section>
                     <h2>Setting up the environment</h2>
-                    <pre><code id="code" data-trim>
-                        $ mkdir pymunich16
-                        $ cd pymunich16
-                        $ virtualenv venv
-                        $ ./venv/bin/activate
-                        $ pip install pytest
+                    <pre><code data-trim>
+                        mkdir pymunich16
+                        cd pymunich16
+                        pyvenv venv
+                        . venv/bin/activate
+                        pip install pytest
                     </code></pre>
                 </section>
                 <section>
-                    <h2>Writing the implementation</h2>
+                    <h2>Write the implementation</h2>
+                    <section>
                     <pre><code data-trim>
                         import pytest
-                        from fibonacci import *
+                        from fib import *
                     
                         def test_raises_when_index_is_negative():
                             with pytest.raises(ValueError):
-                                fibonacci(-1)
-                    
-                        def test_first_number_is_one():
-                            assert fibonacci(0) == 1
-
-                        def test_second_number_is_one():
-                            assert fibonacci(1) == 1
-
-                        def test_number_is_sum_of_previous_numbers():
-                            assert fibonacci(4) == fibonacci(2) + fibonacci(3)
+                                fib(-1)
                     </code></pre>
+                    </section>
+                    <section>
+                    <pre><code data-trim>
+                        def test_first_number_is_one():
+                            assert fib(0) == 1
+                    </code></pre>
+                    </section>
+                    <section>
+                    <pre><code data-trim>
+                        def test_number_is_sum_of_previous_numbers():
+                            assert fib(4) == fib(2) + fib(3)
+                    </code></pre>
+                    </section>
                 </section>
                 <section>
-                    <h2>Writing the test</h2>
+                    <h2>Write the test</h2>
                     Complex numbers example
                 </section>
                 <section>
-                    <h2>Putting it all together</h2>
+                    <h2>Putting it together</h2>
                 </section>
                 <section>
                     <h2>Limitations</h2>
@@ -152,6 +161,7 @@
 
                 var parent = code_block.parentNode;
                 parent.appendChild(button);
+                code_block_index++;
             }
             new Clipboard('.copyable');
 
