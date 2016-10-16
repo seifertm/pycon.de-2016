@@ -94,7 +94,11 @@
                 </section>
                 <section>
                     <h2>Write the test</h2>
-                    Complex numbers example
+                    {% for code_block in complex %}
+                        <section>
+                            <pre><code>{{ code_block }}</code></pre>
+                        </section>
+                    {% endfor %}
                 </section>
                 <section>
                     <h2>Putting it together</h2>
