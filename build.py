@@ -17,7 +17,8 @@ def parse_test_suite(file_path):
         test_content = test_file.read()
     test_content_without_comments = remove_comments(test_content)
     test_blocks = split_test_suite(test_content_without_comments)
-    return test_blocks
+    stripped_test_blocks = map(str.strip, test_blocks)
+    return stripped_test_blocks
 
 fib_test_blocks = parse_test_suite('examples/fibonacci/test_fib.py')
 complex_test_blocks = parse_test_suite('examples/complex/test_complex.py')
