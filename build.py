@@ -16,7 +16,8 @@ def parse_test_suite(file_path):
 
 fib_test_blocks = parse_test_suite('examples/fibonacci/test_fib.py')
 complex_test_blocks = parse_test_suite('examples/complex/test_complex.py')
+fraction_test_blocks = parse_test_suite('examples/fraction/test_fraction.py')
 
-slides = template.render(fib=fib_test_blocks, complex=complex_test_blocks)
+slides = template.render(fib=fib_test_blocks, complex=complex_test_blocks, fraction=fraction_test_blocks)
 with open('slides.html', 'w') as output_file:
     output_file.write(slides)

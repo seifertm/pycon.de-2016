@@ -102,6 +102,11 @@
                 </section>
                 <section>
                     <h2>Putting it together</h2>
+                    {% for code_block in fraction %}
+                        <section>
+                            <pre><code>{{ code_block }}</code></pre>
+                        </section>
+                    {% endfor %}
                 </section>
                 <section>
                     <h2>Limitations</h2>
