@@ -10,7 +10,9 @@ def split_test_suite(test_suite):
     return test_suite.split('\n\n\n')
 
 def remove_comments(test_suite):
-    return re.sub(r'""".+?"""', '', test_suite, flags=re.DOTALL)
+    without_block_comments = re.sub(r'""".+?"""', '', test_suite, flags=re.DOTALL)
+    without_inline_comments = re.sub('#.+', '', without_block_comments)
+    return without_inline_comments
 
 def parse_test_suite(file_path):
     with open(file_path) as test_file:
