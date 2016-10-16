@@ -86,28 +86,11 @@
                 </section>
                 <section>
                     <h2>Write the implementation</h2>
-                    <section>
-                    <pre><code data-trim>
-                        import pytest
-                        from fib import *
-                    
-                        def test_raises_when_index_is_negative():
-                            with pytest.raises(ValueError):
-                                fib(-1)
-                    </code></pre>
-                    </section>
-                    <section>
-                    <pre><code data-trim>
-                        def test_first_number_is_one():
-                            assert fib(0) == 1
-                    </code></pre>
-                    </section>
-                    <section>
-                    <pre><code data-trim>
-                        def test_number_is_sum_of_previous_numbers():
-                            assert fib(4) == fib(2) + fib(3)
-                    </code></pre>
-                    </section>
+                    {% for code_block in fib %}
+                        <section>
+                            <pre><code>{{ code_block }}</code></pre>
+                        </section>
+                    {% endfor %}
                 </section>
                 <section>
                     <h2>Write the test</h2>
@@ -137,6 +120,9 @@
             var code_blocks = document.querySelectorAll("pre code");
             
             for (code_block of code_blocks) {
+                if (!code_block.hasAttribute("data-trim")) {
+                    continue;
+                }
                 var content = code_block.innerHTML;
                 var lines = content.split(/\r?\n/);
                 var whitespace_count = lines[1].match("^\\s*")[0].length;
