@@ -86,26 +86,32 @@
                 </section>
                 <section>
                     <h2>Write the implementation</h2>
-                    {% for code_block in fib %}
+                    {% for code_block in fib.blocks %}
+                        {% if complex.is_code_block(code_block) %}
                         <section>
                             <pre><code>{{ code_block }}</code></pre>
                         </section>
+                        {% endif %}
                     {% endfor %}
                 </section>
                 <section>
                     <h2>Write the test</h2>
-                    {% for code_block in complex %}
+                    {% for code_block in complex.blocks %}
+                        {% if complex.is_code_block(code_block) %}
                         <section>
                             <pre><code>{{ code_block }}</code></pre>
                         </section>
+                        {% endif %}
                     {% endfor %}
                 </section>
                 <section>
                     <h2>Putting it together</h2>
-                    {% for code_block in fraction %}
+                    {% for code_block in fraction.blocks %}
+                        {% if complex.is_code_block(code_block) %}
                         <section>
                             <pre><code>{{ code_block }}</code></pre>
                         </section>
+                        {% endif %}
                     {% endfor %}
                 </section>
                 <section>

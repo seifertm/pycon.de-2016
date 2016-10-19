@@ -40,4 +40,4 @@ def test_conjugate_has_inverted_imaginary_coefficient():
 
 # What about commutated operations?
 
-# Refactor tests by implementing Complex.__eq__ using TDD
+#! Refactor tests by implementing Complex.__eq__ using TDD
