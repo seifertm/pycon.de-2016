@@ -23,7 +23,7 @@ class Example:
         return isinstance(block, CodeBlock)
 
 
-env = Environment(loader=FileSystemLoader('templates'))
+env = Environment(loader=FileSystemLoader('templates'), extensions=['jinja2.ext.with_'])
 template = env.get_template('slides.html')
 
 def split_test_suite(test_suite):

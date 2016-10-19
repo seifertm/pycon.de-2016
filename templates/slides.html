@@ -84,30 +84,15 @@
                         pip install pytest
                     </code></pre>
                 </section>
-                <section>
-                    <h2>{{ fib.title }}</h2>
-                    {% for code_block in fib.blocks %}
-                        {% if fib.is_code_block(code_block) %}
-                        {% include 'code_block.html' %}
-                        {% endif %}
-                    {% endfor %}
-                </section>
-                <section>
-                    <h2>{{ complex.title }}</h2>
-                    {% for code_block in complex.blocks %}
-                        {% if complex.is_code_block(code_block) %}
-                        {% include 'code_block.html' %}
-                        {% endif %}
-                    {% endfor %}
-                </section>
-                <section>
-                    <h2>{{ fraction.title }}</h2>
-                    {% for code_block in fraction.blocks %}
-                        {% if fraction.is_code_block(code_block) %}
-                        {% include 'code_block.html' %}
-                        {% endif %}
-                    {% endfor %}
-                </section>
+                {% with example=fib %}
+                    {% include 'example.html' %}
+                {% endwith %}
+                {% with example=complex %}
+                    {% include 'example.html' %}
+                {% endwith %}
+                {% with example=fraction %}
+                    {% include 'example.html' %}
+                {% endwith %}
                 <section>
                     <h2>Limitations</h2>
                 </section>
