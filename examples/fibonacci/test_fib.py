@@ -1,7 +1,6 @@
 import pytest
 from fib import *
 
-
 def test_raises_when_index_is_negative():
     with pytest.raises(ValueError):
         fib(-1)

@@ -1,7 +1,6 @@
 import pytest
 from fraction import *
 
-
 def test_raises_when_denominator_is_zero():
     with pytest.raises(ValueError):
         Fraction(10, 0)
