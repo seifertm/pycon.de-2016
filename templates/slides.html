@@ -87,7 +87,7 @@
                 <section>
                     <h2>Write the implementation</h2>
                     {% for code_block in fib.blocks %}
-                        {% if complex.is_code_block(code_block) %}
+                        {% if fib.is_code_block(code_block) %}
                         {% include 'code_block.html' %}
                         {% endif %}
                     {% endfor %}
@@ -103,7 +103,7 @@
                 <section>
                     <h2>Putting it together</h2>
                     {% for code_block in fraction.blocks %}
-                        {% if complex.is_code_block(code_block) %}
+                        {% if fraction.is_code_block(code_block) %}
                         {% include 'code_block.html' %}
                         {% endif %}
                     {% endfor %}
