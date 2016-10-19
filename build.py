@@ -15,7 +15,8 @@ class CodeBlock:
         return self.segment
 
 class Example:
-    def __init__(self, blocks):
+    def __init__(self, title, blocks):
+        self.title = title
         self.blocks = blocks
     
     def is_code_block(self, block):
@@ -46,11 +47,14 @@ def parse_test_suite(file_path):
             blocks.append(Task(segment))
         else:
             blocks.append(CodeBlock(segment))
-    return Example(blocks)
+    return blocks
 
-fib_example = parse_test_suite('examples/fibonacci/test_fib.py')
-complex_example = parse_test_suite('examples/complex/test_complex.py')
-fraction_example = parse_test_suite('examples/fraction/test_fraction.py')
+fib_example = Example(title='Write the implementation',
+                      blocks=parse_test_suite('examples/fibonacci/test_fib.py'))
+complex_example = Example(title='Write the test',
+                          blocks=parse_test_suite('examples/complex/test_complex.py'))
+fraction_example = Example(title='Putting it together',
+                           blocks=parse_test_suite('examples/fraction/test_fraction.py'))
 
 slides = template.render(fib=fib_example, complex=complex_example, fraction=fraction_example)
 with open('slides.html', 'w') as output_file:

@@ -85,7 +85,7 @@
                     </code></pre>
                 </section>
                 <section>
-                    <h2>Write the implementation</h2>
+                    <h2>{{ fib.title }}</h2>
                     {% for code_block in fib.blocks %}
                         {% if fib.is_code_block(code_block) %}
                         {% include 'code_block.html' %}
@@ -93,7 +93,7 @@
                     {% endfor %}
                 </section>
                 <section>
-                    <h2>Write the test</h2>
+                    <h2>{{ complex.title }}</h2>
                     {% for code_block in complex.blocks %}
                         {% if complex.is_code_block(code_block) %}
                         {% include 'code_block.html' %}
@@ -101,7 +101,7 @@
                     {% endfor %}
                 </section>
                 <section>
-                    <h2>Putting it together</h2>
+                    <h2>{{ fraction.title }}</h2>
                     {% for code_block in fraction.blocks %}
                         {% if fraction.is_code_block(code_block) %}
                         {% include 'code_block.html' %}
