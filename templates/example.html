@@ -2,7 +2,9 @@
     <h2>{{ example.title }}</h2>
     {% for code_block in example.blocks %}
         {% if example.is_code_block(code_block) %}
-        {% include 'code_block.html' %}
+            <section>
+                <pre><code>{{ code_block }}</code></pre>
+            </section>
         {% endif %}
     {% endfor %}
 </section>
