@@ -84,15 +84,9 @@
                         pip install pytest
                     </code></pre>
                 </section>
-                {% with example=fib %}
+                {% for example in examples %}
                     {% include 'example.html' %}
-                {% endwith %}
-                {% with example=complex %}
-                    {% include 'example.html' %}
-                {% endwith %}
-                {% with example=fraction %}
-                    {% include 'example.html' %}
-                {% endwith %}
+                {% endfor %}
                 <section>
                     <h2>Limitations</h2>
                 </section>

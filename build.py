@@ -59,6 +59,6 @@ complex_example = Example(title='Write the test',
 fraction_example = Example(title='Putting it together',
                            blocks=parse_test_suite('examples/fraction/test_fraction.py'))
 
-slides = template.render(fib=fib_example, complex=complex_example, fraction=fraction_example)
+slides = template.render(examples=[fib_example, complex_example, fraction_example])
 with open('slides.html', 'w') as output_file:
     output_file.write(slides)
