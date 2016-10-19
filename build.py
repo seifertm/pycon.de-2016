@@ -5,7 +5,10 @@ from jinja2 import Environment, FileSystemLoader
 
 class Task:
     def __init__(self, segment):
-        pass
+        self.text = segment.strip('#!')
+    
+    def __str__(self):
+        return self.text
 
 class CodeBlock:
     def __init__(self, segment):
