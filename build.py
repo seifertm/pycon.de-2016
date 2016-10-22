@@ -52,11 +52,11 @@ def parse_test_suite(file_path):
             blocks.append(CodeBlock(segment))
     return blocks
 
-fib_example = Example(title='Write the implementation',
+fib_example = Example(title='Write the implementation I',
                       blocks=parse_test_suite('examples/fibonacci/test_fib.py'))
-complex_example = Example(title='Write the test',
+complex_example = Example(title='Write the implementation II',
                           blocks=parse_test_suite('examples/complex/test_complex.py'))
-fraction_example = Example(title='Putting it together',
+fraction_example = Example(title='Write the tests',
                            blocks=parse_test_suite('examples/fraction/test_fraction.py'))
 
 slides = template.render(examples=[fib_example, complex_example, fraction_example])
