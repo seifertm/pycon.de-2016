@@ -1,5 +1,10 @@
 pre .copyable {
+    display: none;
     position: absolute;
     right: 0;
     bottom: 0;
+}
+
+pre:hover .copyable {
+    display: inline-block;
 }
