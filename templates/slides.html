@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta charset="utf-8"/>
         <link rel="stylesheet" href="static/css/reveal.css">
         <link rel="stylesheet" href="static/css/theme/league.css">
         <link rel="stylesheet" href="static/css/theme/zenburn.css">
@@ -88,51 +89,22 @@
                     {% include 'example.html' %}
                 {% endfor %}
                 <section>
-                <h2>Vending machine</h2>
+                <h2>Change machine</h2>
                     <section>
-                        <p>You are asked to develop a vending machine that sells snacks and drinks. When a customer wants to buy an item from the vending machine, he types the item ID on a keypad and confirms his selection. Once confirmed, the item ID is sent to the software module of the machine, which we are developing.</p>
+                        <h3>Description</h3>
+                        <p>You are asked to develop a change machine that changes bank notes and coins. When a customer wants to change money, he feeds a specified amount of money into the machine and presses a confirmation button. The machine then returns the minimum number of bank notes and coins that matches the input value.</p>
                     </section>
                     <section>
-                        <h3>Overview</h3>
-                        <p>When the system receives an item ID, it performs the following tasks:</p>
-                        <ul>
-                            <li>Look up the price of the item (be creative about which item costs how much)</li>
-                            <li>Display the price to the customer</li>
-                            <li>Accept payment</li>
-                            <li>Deliver item</li>
-                            <li>Return exchange</li>
-                        </ul>
+                        <h3>Example</h3>
+                        <p>A customer feeds one 10 ¤ note, five 2 ¤ coins, and three 1 ¤ coins into the machine.
+                        The machine returns one 20 ¤ note, one 2 ¤ coin, and one 1 ¤ coin.</p>
                     </section>
                     <section>
-                        <h3>Item price lookup</h3>
-                        <ul>
-                            <li>The lookup returns the item price, if the specified item ID exists in the database.</li>
-                            <li>The lookup raises an error, if the specified item does not exist in the database.</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>Accepting payment</h3>
-                        <p>Write a dummy function for this. When the dummy function is called, it returns a random (but sensible) amount of bank notes and coins of different types. This simulates the money you get from the customer.</p>
-                    </section>
-                    <section>
-                        <h3>Delivering the item</h3>
-                        <p>Write a dummy function for this. When the delivery function is called, we assume that item delivery succeeded.</p>
-                    </section>
-                    <section>
-                        <h3>Money depot</h3>
-                        <p>The depot stores bank notes and coins. Interacting modules can withdraw or deposit money by specifying the amount and type for each bank note or coin.</p>
-                    </section>
-                    <section>
-                        <h3>Returning exchange</h3>
-                        <ul>
-                            <li>If the amount of money provided by the customer equals the item price, do nothing.</li>
-                            <li>If the amount of money provided by the customer is greater than the price, return the difference back to the customer.</li>
-                            <li>The price difference should be paid back using the fewest possible bank notes and coins.</li>
-                        </ul>
+                        <h3>Code away…</h3>
                     </section>
                     <section>
                         <h3>Whoops! Requirements changed.</h3>
-                        <p>Your client decided that it should be possible to buy multiple items at once. Assume that all item IDs are provided to you.</p>
+                        <p>Your client decided that it should be possible to input multiple currencies. This means that a customer can feed the machine with mixed currency, e.g. one 10 € note and a 20 $ note. Assume that the output currency stays the same and that the exchange rate between currencies is fixed.</p>
                     </section>
                 </section>
                 <section>
