@@ -59,6 +59,41 @@
                 <section>
                     <h2>Introduction to py.test</h2>
                     <section>
+                        <h3>Basic example</h3>
+                        test_square.py
+                        <pre><code data-trim>
+                            from square import *
+                            
+                            def test_returns_square():
+                                some_number = 4.2
+                                
+                                squared_number = square(some_number)
+                                
+                                assert squared_number == some_number**2
+                        </code></pre>
+                        square.py
+                        <pre><code data-trim>
+                            def square(number):
+                                return number**2
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Running the test suite</h3>
+                        <pre><code data-trim>
+                            py.test
+                        </code></pre>
+                        <pre><code data-trim>
+                            =========================== test session starts ===========================
+                            platform linux -- Python 3.5.2, pytest-3.0.3, py-1.4.31, pluggy-0.4.0
+                            rootdir: &lt;workdir&gt;, inifile: 
+                            collected 1 items 
+                            
+                            test_square.py .
+                            
+                            ======================== 1 passed in 0.01 seconds =========================
+                        </code></pre>
+                    </section>
+                    <section>
                         <h3>Dealing with duplication in tests</h3>
                         <pre><code data-trim>
                             def test_ingredients_contain_tomatoes():
