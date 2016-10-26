@@ -10,9 +10,10 @@ def test_first_number_is_one():
     assert fib(0) == 1
 
 
+"""
 def test_second_number_is_one():
-    # Not necessary?
     assert fib(1) == 1
+"""
 
 
 def test_number_is_sum_of_previous_numbers():
