@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="169.60893mm"
+   height="130.61243mm"
+   viewBox="0 0 600.97653 462.79994"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="tdd-cycle.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="-57.334483"
+     inkscape:cy="253.63727"
+     inkscape:document-units="px"
+     inkscape:current-layer="g4326"
+     showgrid="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-others="true"
+     inkscape:snap-nodes="true"
+     inkscape:snap-global="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-grids="false"
+     showborder="true"
+     inkscape:showpageshadow="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4136"
+       units="mm"
+       spacingx="3.5433071"
+       spacingy="3.5433072"
+       originx="-69.891842"
+       originy="-423.19686" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-69.891846,-166.3654)">
+    <path
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 372.04724,272.83464 c 38.01093,0 73.22599,11.97055 102.08102,32.34748 m 0,0 c 36.78242,25.97512 63.23016,65.61012 71.96055,111.52232 m 0,0 c 2.05064,10.78409 3.12379,21.9145 3.12379,33.29556 m -67.60165,139.23356 c -30.14877,23.75699 -68.20089,37.9318 -109.56371,37.9318 -42.2786,0 -81.09828,-14.80942 -111.55454,-39.52378 M 197.86913,417.43079 c 8.63907,-46.4927 35.43403,-86.60669 72.75158,-112.70865"
+       id="path4331"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccsccc" />
+    <circle
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4161"
+       cx="372.32422"
+       cy="269.69559"
+       r="0" />
+    <g
+       id="g4313"
+       transform="translate(21.858949,0)">
+      <circle
+         r="106.29921"
+         cy="273.66461"
+         cx="350.41071"
+         id="path4161-6-7-0"
+         style="opacity:1;fill:#e9a89d;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4163"
+         y="242.80962"
+         x="350.18829"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25px;line-height:125%;font-family:'URW Palladio L';-inkscape-font-specification:'URW Palladio L Medium';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-size:30px;text-align:center;text-anchor:middle"
+           y="242.80962"
+           x="350.18829"
+           id="tspan4165"
+           sodipodi:role="line" /><tspan
+           style="font-size:30px;text-align:center;text-anchor:middle"
+           id="tspan4167"
+           y="280.30963"
+           x="350.18829"
+           sodipodi:role="line">Failing test</tspan></text>
+    </g>
+    <g
+       id="g4326"
+       transform="translate(0,-4.4849854)">
+      <circle
+         r="106.29921"
+         cy="526.18109"
+         cx="177.19106"
+         id="path4161-6"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4163-7"
+         y="532.57111"
+         x="177.16536"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25px;line-height:125%;font-family:'URW Palladio L';-inkscape-font-specification:'URW Palladio L Medium';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-size:30px;text-align:center;text-anchor:middle"
+           id="tspan4167-3"
+           y="532.57111"
+           x="177.16536"
+           sodipodi:role="line">Refactoring</tspan></text>
+    </g>
+    <circle
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4161-62"
+       cx="545.2926"
+       cy="526.18109"
+       r="0" />
+    <g
+       id="g4319"
+       transform="translate(18.276544,0)">
+      <path
+         style="opacity:1;fill:#b2fd91;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 651.59181,521.69611 A 106.29921,106.29921 0 0 1 545.2926,627.99532 106.29921,106.29921 0 0 1 438.99339,521.69611 106.29921,106.29921 0 0 1 545.2926,415.3969 106.29921,106.29921 0 0 1 651.59181,521.69611 Z"
+         id="path4161-6-7"
+         inkscape:connector-curvature="0" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4163-9"
+         y="488.7861"
+         x="544.90259"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25px;line-height:125%;font-family:'URW Palladio L';-inkscape-font-specification:'URW Palladio L Medium';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-size:30px;text-align:center;text-anchor:middle"
+           y="488.7861"
+           x="548.65259"
+           sodipodi:role="line"
+           id="tspan4231">Simplest </tspan><tspan
+           style="font-size:30px;text-align:center;text-anchor:middle"
+           y="526.28613"
+           x="548.65259"
+           sodipodi:role="line"
+           id="tspan4235">code to make </tspan><tspan
+           style="font-size:30px;text-align:center;text-anchor:middle"
+           y="563.78607"
+           x="544.90259"
+           sodipodi:role="line"
+           id="tspan4249">the test run</tspan></text>
+    </g>
+  </g>
+</svg>
