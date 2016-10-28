@@ -152,11 +152,18 @@
 
                 <section>
                     <h2>Setting up the environment</h2>
-                    <pre><code data-trim>
-                        mkdir pymunich16
-                        cd pymunich16
-                        pyvenv venv
+                    <pre>On Linux and MacOS<code data-trim>
+                        mkdir pyconde16
+                        cd pyconde16
+                        python -m venv venv
                         . venv/bin/activate
+                        pip install pytest
+                    </code></pre>
+                    <pre>On Windows<code data-trim>
+                        mkdir pyconde16
+                        cd pyconde16
+                        python -m venv venv
+                        venv\Scripts\activate.bat
                         pip install pytest
                     </code></pre>
                 </section>
