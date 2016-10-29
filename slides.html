@@ -1,0 +1,386 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="static/css/reveal.css">
+        <link rel="stylesheet" href="static/css/theme/league.css">
+        <link rel="stylesheet" href="static/css/theme/zenburn.css">
+        <link rel="stylesheet" href="static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/css/custom.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h2>Introduction to Test-Driven Development</h2>
+                    <p><strong>PyCon.de 2016</strong><p>
+                    <p><em>Michael Seifert</em><p>
+                </section>
+                <section>
+                    <h2>The TDD cycle</h2>
+                    <img src="static/images/tdd-cycle.svg" alt="Cycle of test-driven development: 1. Write a failing test. 2. Implement the simplest form of code to make the test run. 3. Refactor" style="background: none; border:none; box-shadow: none">
+                </section>
+                <section>
+                    <h2>Tests before implementation?</h2>
+                </section>
+                <section>
+                    <h2>Short term benefits</h2>
+                    <ul>
+                        <li>Thinking about the API</li>
+                        <li class="fragment">Produces specification in the form of tests</li>
+                        <li class="fragment">Makes the API more testable</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Long term benefits</h2>
+                    <ul>
+                        <li>Produces an <q>executable design</q> <a href="https://en.wikipedia.org/wiki/Special:BookSources?isbn=+978-0321948618">(Sterling 2010)</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Introduction to py.test</h2>
+                    <section>
+                        <h3>Basic example</h3>
+                        square/test_square.py
+                        <pre><code data-trim>
+                            from square import *
+                            
+                            def test_returns_square():
+                                some_number = 4.2
+                                
+                                squared_number = square(some_number)
+                                
+                                assert squared_number == some_number**2
+                        </code></pre>
+                        square/square.py
+                        <pre><code data-trim>
+                            def square(number):
+                                return number**2
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Running the test suite</h3>
+                        <pre><code class="sh" data-trim>
+                            py.test
+                        </code></pre>
+                        <pre><code class="no-highlight" data-trim>
+                            =========================== test session starts ===========================
+                            platform linux -- Python 3.5.2, pytest-3.0.3, py-1.4.31, pluggy-0.4.0
+                            rootdir: &lt;workdir&gt;, inifile: 
+                            collected 1 items 
+                            
+                            test_square.py .
+                            
+                            ======================== 1 passed in 0.01 seconds =========================
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Dealing with duplication in tests</h3>
+                        <pre><code data-trim>
+                            def test_ingredients_contain_tomatoes():
+                                delivery_service = LocalService()
+                                pizza = delivery_service.order(1)[0]
+                                
+                                assert 'tomatoes' in pizza.ingredients
+
+                            
+                            def test_ingredients_contain_cheese():
+                                delivery_service = LocalService()
+                                pizza = delivery_service.order(1)[0]
+
+                                assert 'cheese' in pizza.ingredients
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Fixtures to the rescue</h3>
+                        <pre><code data-trim>
+                            @pytest.fixture
+                            def pizza():
+                                delivery_service = LocalService()
+                                pizza = delivery_service.order(1)[0]
+                                return pizza
+
+                            
+                            def test_ingredients_contain_tomatoes(pizza):
+                                assert 'tomatoes' in pizza.ingredients
+
+                            
+                            def test_ingredients_contain_cheese(pizza):
+                                assert 'cheese' in pizza.ingredients
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Testing for exceptions</h3>
+                        <pre><code data-trim>
+                            def test_faculty():
+                                negative_number = -1
+                                
+                                with pytest.raises(ValueError):
+                                    faculty(negative_number)
+                        </code></pre>
+                        <pre class="fragment"><code data-trim>
+                            def faculty(n):
+                                if n &lt; 0:
+                                    raise ValueError('Faculty is not defined for negative integers')
+                                …
+                        </code></pre>
+                    </section>
+                </section>
+                
+                <section>
+                    <h2>Hands on!</h2>
+                </section>
+
+                <section>
+                    <h2>Setting up the environment</h2>
+                    <pre>On Linux and MacOS<code class="sh" data-trim>
+                        mkdir pyconde16
+                        cd pyconde16
+                        python -m venv venv
+                        . venv/bin/activate
+                        pip install pytest
+                    </code></pre>
+                    <pre>On Windows<code class="sh" data-trim>
+                        mkdir pyconde16
+                        cd pyconde16
+                        python -m venv venv
+                        venv\Scripts\activate.bat
+                        pip install pytest
+                    </code></pre>
+                </section>
+                
+                    <section>
+    <h2>Write the implementation I</h2>
+    <section>
+        <p>Implement the Fibonacci sequence. Copy the test cases into your test suite, one by one, and watch the new test fail. Type the simplest implementation that makes the current test work without breaking previous tests.</p>
+    </section>
+    
+        <section>
+            
+                <pre><code>import pytest
+from fib import *
+
+def test_raises_when_index_is_negative():
+    with pytest.raises(ValueError):
+        fib(-1)</code></pre>
+            
+        </section>
+    
+        <section>
+            
+                <pre><code>def test_first_number_is_one():
+    assert fib(0) == 1</code></pre>
+            
+        </section>
+    
+        <section>
+            
+                <pre><code>def test_number_is_sum_of_previous_numbers():
+    assert fib(4) == fib(2) + fib(3)</code></pre>
+            
+        </section>
+    
+</section>
+                
+                    <section>
+    <h2>Write the implementation II</h2>
+    <section>
+        <p>Implement a representation for complex numbers. Just as in the previous example, copy each test into your test suite, one after another and make the test work in the easiest way possible. Do not forget to refactor before adding a new test to your test suite.</p>
+    </section>
+    
+        <section>
+            
+                <pre><code>from complex import *
+
+def test_add_returns_sum_of_coefficients():
+    augend = Complex(4,  2)
+    addend = Complex(5, -9)
+    
+    complex_sum = augend + addend
+    
+    assert complex_sum.real == augend.real + addend.real
+    assert complex_sum.imaginary == augend.imaginary + addend.imaginary</code></pre>
+            
+        </section>
+    
+        <section>
+            
+                <pre><code>def test_sub_returns_difference_of_coefficients():
+    minuend = Complex(4, 2)
+    subtrahend = Complex(5, -9)
+    
+    difference = minuend - subtrahend
+    
+    assert difference.real == minuend.real - subtrahend.real
+    assert difference.imaginary == minuend.imaginary - subtrahend.imaginary</code></pre>
+            
+        </section>
+    
+        <section>
+            
+                <pre><code>def test_mul_returns_product_of_coefficients():
+    multiplier = Complex(4, 2)
+    multiplicand = Complex(5, -9)
+    
+    product = multiplier * multiplicand
+    
+    assert product.real == multiplier.real * multiplicand.real - multiplier.imaginary * multiplicand.imaginary
+    assert product.imaginary == multiplier.real * multiplicand.imaginary + multiplier.imaginary * multiplicand.real</code></pre>
+            
+        </section>
+    
+        <section>
+            
+                <pre><code>def test_conjugate_has_inverted_imaginary_coefficient():
+    comp = Complex(4, 2)
+    
+    conjugate = comp.conjugate()
+    
+    assert conjugate.imaginary == -comp.imaginary</code></pre>
+            
+        </section>
+    
+        <section>
+            
+                <p> Refactor tests by implementing Complex.__eq__ using TDD</p>
+            
+        </section>
+    
+</section>
+                
+                    <section>
+    <h2>Write the tests</h2>
+    <section>
+        <p>Implement a representation for fractions. This time, the bodies of the tests are not provided. You have to implement them yourself according to the specification provided by the test name.</p>
+    </section>
+    
+        <section>
+            
+                <pre><code>import pytest
+from fraction import *
+
+def test_raises_when_denominator_is_zero():</code></pre>
+            
+        </section>
+    
+        <section>
+            
+                <pre><code>def test_reduce_returns_same_fraction_when_fraction_is_irreducible():</code></pre>
+            
+        </section>
+    
+        <section>
+            
+                <pre><code>def test_reduced_fraction_has_different_numerator_and_denominator_when_fraction_is_reducible():</code></pre>
+            
+        </section>
+    
+</section>
+                
+                <section>
+                <h2>Change machine</h2>
+                    <section>
+                        <h3>Description</h3>
+                        <p>You are asked to develop a change machine that changes bank notes and coins. When a customer wants to change money, he feeds a specified amount of money into the machine and presses a confirmation button. The machine then returns the minimum number of bank notes and coins that matches the input value.</p>
+                    </section>
+                    <section>
+                        <h3>Example</h3>
+                        <p>A customer feeds one 10 ¤ note, five 2 ¤ coins, and three 1 ¤ coins into the machine.
+                        The machine returns one 20 ¤ note, one 2 ¤ coin, and one 1 ¤ coin.</p>
+                    </section>
+                    <section>
+                        <h3>Code away…</h3>
+                    </section>
+                    <section>
+                        <h3>Whoops! Requirements changed.</h3>
+                        <p>Your client decided that it should be possible to input multiple currencies. This means that a customer can feed the machine with mixed currency, e.g. one 10 € note and a 20 $ note. Assume that the output currency stays the same and that the exchange rate between currencies is fixed.</p>
+                    </section>
+                </section>
+                <section>
+                    <h2>Limitations</h2>
+                    <section>
+                        <h3>Does not produce larger tests</h3>
+                    </section>
+                    <section>
+                        <h3>Not all cases are necessarily tested</h3>
+                        <pre class="fragment"><code data-trim>
+                            def test_raises_when_index_is_negative():
+                                with pytest.raises(ValueError):
+                                    fib(-1)
+
+                            def test_first_number_is_one():
+                                assert fib(0) == 1
+
+                            def test_number_is_sum_of_previous_numbers():
+                                assert fib(4) == fib(2) + fib(3)
+                        </code></pre>
+                        <p class="fragment">What about the test for fib(1) == 1?</p>
+                    </section>
+                </section>
+                <section>
+                    <h2>Improving our TDD skills</h2>
+                    <p>Choosing the right granularity</p>
+                    <p>Choosing the right order of tests</p>
+                </section>
+                <section>
+                    <h2>Further material</h2>
+                    <ul>
+                        <li><a href="https://en.wikipedia.org/wiki/Special:BookSources?isbn=9780321146533">Test Driven Development by Example</a><br/>Kent Beck, 2003</li>
+                        <li><a href="https://en.wikipedia.org/wiki/Special:BookSources?isbn=9780321503626">Growing Object‑Oriented Software: Guided by Tests</a><br/>Nat Pryce, Steve Freeman, 2009</li>
+                        <li><a href="https://github.com/grzesiek-galezowski/tdd-ebook">Test-Driven Development: Extensive Tutorial</a> (WIP)<br/>Grzegorz Gałęzowski, 2013</li>
+                        <li><a href="http://www.obeythetestinggoat.com/">Test-Driven Development with Python</a><br/>Harry J.W. Percival, 2014</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Thank you!</h2>
+                </section>
+            </div>
+        </div>
+        <script src="static/js/head.min.js"></script>
+        <script src="static/js/reveal.js"></script>
+        <script src="static/js/clipboard.js"></script>
+        <script>
+            var code_blocks = document.querySelectorAll("pre code");
+            
+            for (code_block of code_blocks) {
+                if (!code_block.hasAttribute("data-trim")) {
+                    continue;
+                }
+                var content = code_block.innerHTML;
+                var lines = content.split(/\r?\n/);
+                var whitespace_count = lines[1].match("^\\s*")[0].length;
+                var trimmed_lines = lines.map(function (element) {
+                    return element.substring(whitespace_count);
+                });
+                code_block.innerHTML = trimmed_lines.join("\n");
+            }
+            
+            var code_block_index = 0;
+            for (code_block of code_blocks) {
+                var listing_id = "listing" + code_block_index;
+                code_block.id = listing_id;
+                var button = document.createElement("button");
+                button.classList.add("copyable");
+                button.setAttribute("data-clipboard-target", "#" + listing_id); 
+                button.setAttribute("alt", "Copy to clipboard"); 
+                
+                var clipboard_icon = document.createElement("i");
+                clipboard_icon.classList.add("fa", "fa-clipboard");
+                clipboard_icon.setAttribute("aria-hidden", "true");
+                button.appendChild(clipboard_icon);
+
+                var parent = code_block.parentNode;
+                parent.appendChild(button);
+                code_block_index++;
+            }
+            new Clipboard('.copyable');
+
+            
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'static/js/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+            Reveal.configure({ slideNumber: true });
+        </script>
+    </body>
+</html>
