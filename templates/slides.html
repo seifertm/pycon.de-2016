@@ -170,10 +170,24 @@
                 </section>
                 <section>
                     <h2>Limitations</h2>
-                    <ul>
-                        <li class="fragment">Does not produce larger tests</li>
-                        <li class="fragment">Tests do not necessarily cover all desirable cases</li>
-                    </ul>
+                    <section>
+                        <h3>Does not produce larger tests</h3>
+                    </section>
+                    <section>
+                        <h3>Not all cases are necessarily tested</h3>
+                        <pre class="fragment"><code data-trim>
+                            def test_raises_when_index_is_negative():
+                                with pytest.raises(ValueError):
+                                    fib(-1)
+
+                            def test_first_number_is_one():
+                                assert fib(0) == 1
+
+                            def test_number_is_sum_of_previous_numbers():
+                                assert fib(4) == fib(2) + fib(3)
+                        </code></pre>
+                        <p class="fragment">What about the test for fib(1) == 1?</p>
+                    </section>
                 </section>
                 <section>
                     <h2>Improving our TDD skills</h2>
